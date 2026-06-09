@@ -11,7 +11,7 @@ public class Main {
 
         System.out.println();
 
-        Matrix Tmatr = matr.T();
+        Matrix Tmatr = Matrix.T(matr);
         for (int i = 0; i < Tmatr.rows; i++) {
             for (int j = 0; j < Tmatr.cols; j++) {
                 System.out.print(Tmatr.at(i, j) + " ");

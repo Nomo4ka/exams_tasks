@@ -40,11 +40,11 @@ public class Matrix {
         matr[indexi][indexj] = val;
     }
     
-    public Matrix T() {
-        double[][] TransposMatr = new double[cols][rows];
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                TransposMatr[j][i] = this.matr[i][j];
+    public static Matrix T(Matrix m) {
+        double[][] TransposMatr = new double[m.cols][m.rows];
+        for (int i = 0; i < m.rows; i++) {
+            for (int j = 0; j < m.cols; j++) {
+                TransposMatr[j][i] = m.matr[i][j];
             }
         }
 
