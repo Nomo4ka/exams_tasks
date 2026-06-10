@@ -34,7 +34,7 @@ public class Vector implements Iterable<Double> , java.io.Serializable {
 
             @Override
             public Double next() {
-                return vector[++currIndex];
+                return vector[currIndex++];
             }
         };
     }
