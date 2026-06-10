@@ -1,9 +1,13 @@
 public class MonteCarloThread extends Thread {
     private int pointsCount;
-    double result;
+    private double result;
     
     MonteCarloThread(int pointsCount) {
         this.pointsCount = pointsCount;
+    }
+
+    public double getResult(){
+        return result;
     }
 
     @Override 
