@@ -3,9 +3,16 @@ public class Main {
         int pointsCount = Integer.parseInt(args[0]);
         int threadsCount = Integer.parseInt(args[1]);
 
+        int points = pointsCount / threadsCount;
+        int remainder = pointsCount % threadsCount;
+
         MonteCarloThread[] threads = new MonteCarloThread[threadsCount];
         for (int i = 0; i < threadsCount; i++) {
-            threads[i] = new MonteCarloThread(pointsCount);
+            if (remainder != 0){
+                ++points;
+                --remainder;
+            }
+            threads[i] = new MonteCarloThread(points);
             threads[i].start();
         }
 
@@ -13,12 +20,11 @@ public class Main {
         for (int i = 0; i < threadsCount; i++) {
             try {
                 threads[i].join();
-                inside += threads[i].result;
+                inside += threads[i].getResult();
             } catch (InterruptedException e) {
                 System.err.println("возникла ошибка!");
             }
         }
         System.out.println(4.0 * inside / pointsCount);
-        //если взять 100000 точек и 4 потока, то результат будет 12.55552 , охуенная апроксимация 
     }
 }
